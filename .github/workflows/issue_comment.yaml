@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: add comment
         run: |
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{OWNER}}/${{REPO}}/issues/${{ISSUE_NUMBER}}/comments -d '{"body":"Comment from API in Github Actions"}'      
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{env.OWNER}}/${{env.REPO}}/issues/${{env.ISSUE_NUMBER}}/comments -d '{"body":"Comment from API in Github Actions"}'      
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           OWNER: ${{ github.event.repository.owner.login }}
