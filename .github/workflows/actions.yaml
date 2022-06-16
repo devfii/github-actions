@@ -11,10 +11,9 @@ jobs:
         run: echo "Hello to you!"
         shell: bash
 
-
   sayGoodbye:
     runs-on: ubuntu-latest
     steps:
-    - name: goodbye
+      - name: goodbye
         run: echo "Goodbye to you!"
         shell: bash
