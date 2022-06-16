@@ -11,7 +11,7 @@ jobs:
         run: echo '${{ toJSON(github.event) }}'
       - name: add comment
         run: |
-          curl -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: "+GITHUB_TOKEN -d '{"body":"Me too"}' https://api.github.com/repos/OWNER/REPO/issues/ISSUE_NUMBER/comments
+          curl -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: token "+GITHUB_TOKEN -d '{"body":"Me too"}' https://api.github.com/repos/OWNER/REPO/issues/ISSUE_NUMBER/comments
         env: 
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
          OWNER: ${{ github.event.repository.owner.login}}
