@@ -1,0 +1,20 @@
+name: Sample Github Actions
+on:
+  push:
+    branches: [main]
+jobs:
+  sayHello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: hello
+        run: echo "Hello to you!"
+        shell: bash
+
+
+  sayGoodbye:
+    runs-on: ubuntu-latest
+    steps:
+    - name: goodbye
+        run: echo "Goodbye to you!"
+        shell: bash
