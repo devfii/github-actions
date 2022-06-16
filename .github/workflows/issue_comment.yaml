@@ -11,11 +11,7 @@ jobs:
         run: echo '${{ toJSON(github.event) }}'
       - name: add comment
         run: |
-          gh api \
-          --method POST \
-          -H "Accept: application/vnd.github.v3+json" \
-           /repos/OWNER/REPO/issues/ISSUE_NUMBER/comments \
-           -f body='Me too'       
+          gh api --method POST -H "Accept: application/vnd.github.v3+json" /repos/OWNER/REPO/issues/ISSUE_NUMBER/comments -f body='Me too'       
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           OWNER: ${{ github.event.repository.owner.login}}
