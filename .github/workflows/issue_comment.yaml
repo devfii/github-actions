@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get event context
-        run: echo '${{ toJSON(github.event) }}'
+        run: echo ${{ secrets.GITHUB_TOKEN }}
       - name: add comment
         run: |
           curl -X POST -H "Authorization: token GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/OWNER/REPO/issues/ISSUE_NUMBER/comments -d '{"body":"Comment from API in Github Actions"}'      
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-          OWNER: ${{ github.event.repository.owner.login}}
+          OWNER: ${{ github.event.repository.owner.login }}
           REPO: ${{ github.event.repository.name}}
           ISSUE_NUMBER: ${{ github.event.issue.number}}
          
